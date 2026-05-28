@@ -499,3 +499,42 @@ Finally i submitted the API key and solved the issue.
 ## Takeaway
 
 This Challenge is sort of different from the previous ones because it access similar level access role hence Horizontal privilege escalation. While the methods are kinda similar but instead of getting admin rights and performing another operations rather it focuses exploiting or stealing API keys of similar level user.
+
+## Lab 5 : User ID controlled by request parameter with password disclosure
+
+![](../../../assets/Pasted%20image%2020260528040450.png)
+
+This challenge basically have client side masked password it broken access control. 
+
+We can solve this challenge with burp only the by viewing the source page we will see both methods. 
+
+## Method 1 (Browser)
+
+We first login with given credentials ``wiener:peter``
+the ID parameter will be showing the user wiener first but change it to Administator. 
+
+![](../../../assets/Pasted%20image%2020260528041005.png)
+
+Next step would be viewing the source page of the site. 
+
+![](../../../assets/Pasted%20image%2020260528041350.png)
+
+so the next step is just logging as admin with the password the client leaked.
+
+## Method 2 Using Burp
+
+![](../../../assets/Pasted%20image%2020260528041838.png)
+
+Its similar step here as well. we will intercept the request when the user (wiener) logs in and send the same request to repeater to change the ID parameter to view the pass.
+
+![](../../../assets/Pasted%20image%2020260528042243.png)
+
+After we modified the ID parameter and send it, we found the same password. The next step would be logging in as an Admin and delete the user Carlos to complete the challenge.
+
+![](../../../assets/Pasted%20image%2020260528042847.png)
+
+Now we are in the admin panel so our target is to ka boom Carlos
+
+![](../../../assets/Pasted%20image%2020260528042939.png)
+
+As you can see Deleted Carlos and Solved the Lab.
