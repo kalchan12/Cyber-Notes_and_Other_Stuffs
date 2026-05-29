@@ -538,3 +538,133 @@ Now we are in the admin panel so our target is to ka boom Carlos
 ![](../../../assets/Pasted%20image%2020260528042939.png)
 
 As you can see Deleted Carlos and Solved the Lab.
+
+# Authentication Vulnerabilities
+
+Authentication vulnerabilities are security weaknesses that happen during the process of verifying a user's identity. These vulnerabilities are usually very serious because authentication is directly connected to account access and sensitive functionality.
+
+If an attacker successfully exploits an authentication vulnerability, they may gain access to user accounts, private information, or administrative features. In many cases, this can also lead to further attacks inside the application.
+
+In this section, I learned about:
+
+- Common authentication mechanisms used by websites
+    
+- Weaknesses found in authentication systems
+    
+- Vulnerabilities caused by poor implementation
+    
+- Different methods attackers use to bypass authentication
+    
+- Ways to make authentication systems more secure
+    
+
+## Authentication vs Authorization
+
+Authentication and authorization are related, but they are not the same thing.
+
+### Authentication
+
+Authentication is the process of verifying whether a user is really who they claim to be.
+
+Example:  
+If someone logs in using the username `Carlos123`, authentication checks whether that person actually owns the account.
+
+### Authorization
+
+Authorization determines what an authenticated user is allowed to do inside the application.
+
+Example:  
+After Carlos123 successfully logs in, authorization decides whether the user can:
+
+- View sensitive data
+    
+- Access admin pages
+    
+- Modify other users' accounts
+    
+- Delete resources
+    
+
+In short:
+
+- Authentication = proving identity
+    
+- Authorization = controlling permissions
+    
+
+# Brute-Force Attacks
+
+A brute-force attack is a method where attackers repeatedly try different username and password combinations until they find valid credentials.
+
+These attacks are usually automated using tools and wordlists, allowing attackers to send a large number of login attempts very quickly.
+
+Brute-force attacks are not always random. Attackers often use logic, common password patterns, leaked credentials, or publicly available information to make smarter guesses. This makes the attack more effective and reduces the time needed to find valid credentials.
+
+Applications that rely only on username and password authentication can become highly vulnerable if they do not implement proper brute-force protections.
+
+## Brute-Forcing Passwords
+
+The difficulty of brute-forcing a password depends on how strong the password is.
+
+Many websites use password policies to force users to create stronger passwords. These policies often require:
+
+- A minimum password length
+    
+- Uppercase and lowercase letters
+    
+- Numbers
+    
+- Special characters
+    
+
+Even though these rules improve password strength, users often create predictable passwords so they can still remember them.
+
+Examples:
+
+- `mypassword` becomes `Mypassword1!`
+    
+- `password123` becomes `P@ssword123`
+    
+- `hello123` becomes `Hello123!`
+    
+
+Users also tend to make small changes when forced to update passwords regularly.
+
+Examples:
+
+- `Mypassword1!` becomes `Mypassword2!`
+    
+- `Winter2024!` becomes `Winter2025!`
+    
+
+Because human behavior is predictable, attackers can create more targeted and efficient brute-force attacks instead of trying every possible character combination.
+
+# Username Enumeration
+
+Username enumeration happens when an application reveals whether a username exists based on differences in its responses or behavior.
+
+This usually occurs on:
+
+- Login pages
+    
+- Registration forms
+    
+- Password reset pages
+    
+
+For example:
+
+- Entering a valid username with the wrong password may return:  
+    `Incorrect password`
+    
+- Entering an invalid username may return:  
+    `User does not exist`
+    
+
+These different responses help attackers identify valid usernames.
+
+Registration forms can also expose usernames if they display messages like:  
+`This username is already taken`
+
+Username enumeration makes brute-force attacks easier because attackers no longer need to guess both usernames and passwords. They can first collect valid usernames and then focus only on guessing passwords.
+
