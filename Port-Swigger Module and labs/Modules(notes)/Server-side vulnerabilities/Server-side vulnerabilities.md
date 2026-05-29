@@ -863,7 +863,7 @@ Just like that we solved the lab.
 While Community Version of Burp is really good for many things but it has some limitations especially when it comes to bruteforcing usernames and passwords and to go around that, we can user Burp Extensions or other tools like FFUF.
 
 
-# Bypassing Two-Factor Authentication
+# Lab Bypassing Two-Factor Authentication
 
 Sometimes two-factor authentication isn’t implemented properly, and that can lead to ways of bypassing it completely.
 
@@ -875,3 +875,25 @@ Because of this, it’s important to test whether the application actually enfor
 
 In some cases, the application doesn’t properly verify that the second authentication step was completed, which can allow users to skip the verification code entirely and still access protected areas.
 
+
+## Lab 7 : 2FA simple bypass
+
+![](../../../assets/Pasted%20image%2020260529102858.png)
+
+This very simple challenge honestly.
+
+Here what i wanna say is they kinda instruct you to log in as ``wiener:peter`` so that you can view your OPT in the email client but i still don't get why that is needed but i think it is to show the url issue.
+
+Anyways secondly we log in ``carlos:montoya``
+
+![](../../../assets/Pasted%20image%2020260529103507.png)
+
+We first login we see the url `/login2`
+
+![](../../../assets/Pasted%20image%2020260529103700.png)
+
+Practically the challenge is to bypass the 2FA. This show common mistakes that happen in the websites. The user is in the logged in state but he/she has to input the OTP codes to complete the process but even after a login the system should check against the code or in our case url because we managed to by pass the OTP process by simply changing the url to my-account. The system should redirect to /my-account if only if after the OPT is inserted. 
+
+![](../../../assets/Pasted%20image%2020260529103823.png)
+
+As you can see we completed the Lab. 
