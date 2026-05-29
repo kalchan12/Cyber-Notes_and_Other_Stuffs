@@ -668,3 +668,37 @@ Registration forms can also expose usernames if they display messages like:
 
 Username enumeration makes brute-force attacks easier because attackers no longer need to guess both usernames and passwords. They can first collect valid usernames and then focus only on guessing passwords.
 
+
+## Lab 6 : Username enumeration via different responses
+
+![](../../../assets/Pasted%20image%2020260529090147.png)
+
+This Challenge involves enumerating usernames and passwords.
+
+![](../../../assets/Pasted%20image%2020260529090303.png)
+
+First we access the page as you can see it above.
+
+![](../../../assets/Pasted%20image%2020260529090505.png)
+
+I inserted dummy username and password to test and capture the request. so in this stage we just send it to intruder to the bruteforce from the list of usernames and passwords that were given.
+After sending it to burp intruder we shall add the username and then start the attack.
+
+![](../../../assets/Pasted%20image%2020260529090646.png)
+
+If you are going to use the community version of burp like me it is gonna take a minute and not ideal for large list of enumerations but since this very small list its okay. Another alternative would be using `FFUF` or `Turbo intruder` in burp extension.
+
+As you can see above we found a username that is highlighted and we know that because the length of that particular username is higher than the rest. 
+
+![](../../../assets/Pasted%20image%2020260529091032.png)
+
+here we replace the dummy username with the real username we found in the intruder and then add (We select the password and click the add button above to mark it for bruteforcing). Then we practically wait until we found the pass.
+
+![](../../../assets/Pasted%20image%2020260529091203.png)
+
+For the Password we don't see the length of the pass rather we check unique status code. In our case we are looking for re direct status code `302`, this would basically imply that we logged in.
+
+
+![](../../../assets/Pasted%20image%2020260529091246.png)
+
+Just like that we Solved the Lab.
