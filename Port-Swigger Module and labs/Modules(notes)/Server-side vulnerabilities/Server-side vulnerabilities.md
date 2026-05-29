@@ -861,3 +861,17 @@ Just like that we solved the lab.
 ## Final Thought
 
 While Community Version of Burp is really good for many things but it has some limitations especially when it comes to bruteforcing usernames and passwords and to go around that, we can user Burp Extensions or other tools like FFUF.
+
+
+# Bypassing Two-Factor Authentication
+
+Sometimes two-factor authentication isn’t implemented properly, and that can lead to ways of bypassing it completely.
+
+In some systems, login happens in two steps. First, you enter your password, and then you’re asked to provide a verification code on a separate page. The problem is that after the password step, the system may already treat the user as partially authenticated.
+
+This means the user might technically reach a “logged in” state before completing the second step.
+
+Because of this, it’s important to test whether the application actually enforces the second factor correctly. For example, you can try accessing pages that should only be available after full login, right after completing the first step.
+
+In some cases, the application doesn’t properly verify that the second authentication step was completed, which can allow users to skip the verification code entirely and still access protected areas.
+
