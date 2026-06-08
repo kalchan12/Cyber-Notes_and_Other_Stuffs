@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 4 Process Synchronization.md",
+                "file": "Exit-Exam notes(CSE)/Notes/Database/Chapter 1 Introduction to Database Management System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 4 Process Synchronization"
+              "title": "Chapter 1 Introduction to Database Management System"
             }
           }
         ],
@@ -186,8 +186,10 @@
   },
   "active": "0764d61b290c6665",
   "lastOpenFiles": [
-    "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 3 Memory Management & Virtual Memory.md",
     "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 4 Process Synchronization.md",
+    "Exit-Exam notes(CSE)/Notes/Database/Chapter 1 Introduction to Database Management System.md",
+    "Exit-Exam notes(CSE)/Notes/Database",
+    "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 3 Memory Management & Virtual Memory.md",
     "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 2 Process Management.md",
     "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 1 Operating System Fundamentals.md",
     "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 2 Process Management",
@@ -212,7 +214,6 @@
     "Port-Swigger Module and labs/Labs",
     "Port-Swigger Module and labs/Modules(notes)",
     "Port-Swigger Module and labs/Modules(notes)/Server-side vulnerabilities",
-    "Port-Swigger Module and labs",
     "Capture The Flag (CTF)/Pico CTF/Crack The Power.md",
     "Capture The Flag (CTF)/Pico CTF/Log Hunt.md",
     "Capture The Flag (CTF)/Pico CTF/Riddle Registry.md",
@@ -230,7 +231,6 @@
     "My Ethical Hacking Notes/1-Recon/WhatWeb/Whatweb.md",
     "My Ethical Hacking Notes/1-Recon/Untitled.md",
     "My Ethical Hacking Notes/1-Recon/Sublist3r.md",
-    "My Ethical Hacking Notes/1-Recon/What is Reconnaissance.md",
-    "My Ethical Hacking Notes/Untitled.md"
+    "My Ethical Hacking Notes/1-Recon/What is Reconnaissance.md"
   ]
 }
