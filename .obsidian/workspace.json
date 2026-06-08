@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 1 Operating System Fundamentals.md",
+                "file": "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 2 Process Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 1 Operating System Fundamentals"
+              "title": "Chapter 2 Process Management"
             }
           }
         ],
@@ -184,10 +184,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c51db723ca7b499b",
+  "active": "0764d61b290c6665",
   "lastOpenFiles": [
-    "Exit-Exam notes(CSE)/Computer Networks.md",
     "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 1 Operating System Fundamentals.md",
+    "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 2 Process Management.md",
+    "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 2 Process Management",
+    "Exit-Exam notes(CSE)/Computer Networks.md",
     "Exit-Exam notes(CSE)/Bytes/Networking/OSI Model/OSI Model.md",
     "Exit-Exam notes(CSE)/Notes/Operating System",
     "Exit-Exam notes(CSE)/Notes",
@@ -210,7 +212,6 @@
     "Port-Swigger Module and labs/Modules(notes)/Server-side vulnerabilities",
     "Port-Swigger Module and labs",
     "Capture The Flag (CTF)/Pico CTF/Crack The Power.md",
-    "Exit-Exam notes(CSE)",
     "Capture The Flag (CTF)/Pico CTF/Log Hunt.md",
     "Capture The Flag (CTF)/Pico CTF/Riddle Registry.md",
     "Capture The Flag (CTF)/Pico CTF/Hidden in plainsight.md",
@@ -230,7 +231,6 @@
     "My Ethical Hacking Notes/1-Recon/What is Reconnaissance.md",
     "My Ethical Hacking Notes/Untitled.md",
     "Capture The Flag (CTF)/Hack The Box/The Suspicious Domain.md",
-    "Capture The Flag (CTF)/Hack The Box/Social Media Investigation Hub.md",
-    "Capture The Flag (CTF)/Hack The Box/The Puppet Master (OSINT).md"
+    "Capture The Flag (CTF)/Hack The Box/Social Media Investigation Hub.md"
   ]
 }
