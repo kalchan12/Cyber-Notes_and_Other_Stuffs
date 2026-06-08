@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exit-Exam notes(CSE)/Bytes/Networking/OSI Model/OSI Model.md",
+                "file": "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 1 Operating System Fundamentals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OSI Model"
+              "title": "Chapter 1 Operating System Fundamentals"
             }
           }
         ],
@@ -184,10 +184,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0764d61b290c6665",
+  "active": "c51db723ca7b499b",
   "lastOpenFiles": [
     "Exit-Exam notes(CSE)/Computer Networks.md",
+    "Exit-Exam notes(CSE)/Notes/Operating System/Chapter 1 Operating System Fundamentals.md",
     "Exit-Exam notes(CSE)/Bytes/Networking/OSI Model/OSI Model.md",
+    "Exit-Exam notes(CSE)/Notes/Operating System",
+    "Exit-Exam notes(CSE)/Notes",
     "Exit-Exam notes(CSE)/Bytes/Networking/OSI Model",
     "Exit-Exam notes(CSE)/Bytes/Networking",
     "Exit-Exam notes(CSE)/Bytes",
@@ -215,9 +218,7 @@
     "Capture The Flag (CTF)/Pico CTF/hashcrack.md",
     "Capture The Flag (CTF)/Pico CTF/FANTASY CTF.md",
     "Capture The Flag (CTF)/Try Hack Me/W1seGuy.md",
-    "Capture The Flag (CTF)/Pico CTF",
     "README.md",
-    "Capture The Flag (CTF)/Try Hack Me",
     "My Ethical Hacking Notes/1-Recon/Gobuster/Gobuster && Dirbuster.md",
     "My Ethical Hacking Notes/1-Recon/Nikito/Nikito.md",
     "My Ethical Hacking Notes/1-Recon/Nmap/What is Nmap.md",
@@ -230,7 +231,6 @@
     "My Ethical Hacking Notes/Untitled.md",
     "Capture The Flag (CTF)/Hack The Box/The Suspicious Domain.md",
     "Capture The Flag (CTF)/Hack The Box/Social Media Investigation Hub.md",
-    "Capture The Flag (CTF)/Hack The Box/The Puppet Master (OSINT).md",
-    "Capture The Flag (CTF)/Hack The Box/Spookifier.md"
+    "Capture The Flag (CTF)/Hack The Box/The Puppet Master (OSINT).md"
   ]
 }
