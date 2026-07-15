@@ -897,3 +897,73 @@ Practically the challenge is to bypass the 2FA. This show common mistakes that h
 ![](../../../assets/Pasted%20image%2020260529103823.png)
 
 As you can see we completed the Lab. 
+
+
+# What is SSRF?
+
+Server-Side Request Forgery (SSRF) is a web security vulnerability that allows an attacker to make the server send requests to locations that it was never intended to access.
+
+Instead of sending requests directly, the attacker tricks the vulnerable application into making the request on their behalf.
+
+In many cases, SSRF is used to access internal services that are not exposed to the internet. Since the request comes from the server itself, it may be able to reach internal systems that an external attacker normally couldn't access.
+
+SSRF can also be used to make requests to external servers controlled by the attacker, which may expose sensitive information such as API keys, authentication tokens, or other confidential data.
+
+# SSRF Attacks Against the Server
+
+One common type of SSRF attack is when an attacker tricks the application into sending a request back to its own server. This is usually done by changing a URL parameter so that it points to the server's loopback address, such as:
+
+```text
+127.0.0.1
+```
+
+or
+
+```text
+localhost
+```
+
+Both of these refer to the local machine that is running the application.
+
+## Example
+
+Imagine an online shopping website that checks whether a product is in stock. When a user clicks **Check Stock**, the application sends a request to a back-end API.
+
+Original request:
+
+```http
+POST /product/stock
+
+stockApi=http://stock.weliketoshop.net:8080/product/stock/check?productId=6&storeId=1
+```
+
+The server reads the `stockApi` parameter, sends a request to that URL, and returns the stock information to the user.
+
+If the application doesn't validate the URL properly, an attacker can change it to:
+
+```http
+stockApi=http://localhost/admin
+```
+
+Instead of checking the stock API, the server now makes a request to its own `/admin` page and returns the response to the attacker.
+
+## Why Does This Work?
+
+Normally, an attacker cannot access `/admin` because it requires authentication or is restricted.
+
+However, when the request comes from the server itself (`localhost`), many applications treat it as a trusted request and skip some security checks. As a result, the attacker may gain access to administrative functionality that would normally be blocked.
+
+## Why Do Applications Trust Local Requests?
+
+There are several reasons why applications may trust requests coming from the local machine:
+
+- Access control may be handled by another component (such as a reverse proxy or firewall). Requests originating from the server can bypass these checks.
+    
+- Some applications allow local administrative access without requiring authentication for emergency recovery purposes.
+    
+- The admin interface may run on a different port and only be accessible from the local machine.
+    
+
+## Key Takeaway
+
+SSRF becomes especially dangerous when the server trusts requests made from `localhost` or `127.0.0.1`. By abusing this trust, an attacker may access internal services, bypass security controls, or gain administrative access that should never be exposed externally.
